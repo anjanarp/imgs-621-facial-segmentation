@@ -130,48 +130,26 @@ Official CelebA split preserved:
 
 Pixelwise TP / TN / FP / FN were accumulated across images.
 
-### Intersection over Union
+**IoU = TP / (TP + FP + FN)**  
+Measures how much the predicted skin region overlaps the conservative ground-truth mask relative to their combined area.
 
-\[
-IoU = \frac{TP}{TP + FP + FN}
-\]
+**Dice = 2TP / (2TP + FP + FN)**  
+Measures overall agreement between predicted and true skin regions, with emphasis on correctly overlapping skin pixels.
 
-### Dice Coefficient
+**Precision = TP / (TP + FP)**  
+Measures how often pixels predicted as skin were actually true skin, so low precision indicates over-segmentation into hair, lips, shadows, or background.
 
-\[
-Dice = \frac{2TP}{2TP + FP + FN}
-\]
+**Recall = TP / (TP + FN)**  
+Measures how much of the true skin region was successfully recovered, so low recall means valid skin areas were missed.
 
-### Precision
+**Specificity = TN / (TN + FP)**  
+Measures how well the model correctly rejects non-skin pixels such as hair, clothing, background, or excluded facial parts.
 
-\[
-Precision = \frac{TP}{TP + FP}
-\]
+**Balanced Accuracy = (Recall + Specificity) / 2**  
+Measures average performance across both skin and non-skin classes, helping account for class imbalance where background pixels dominate.
 
-### Recall
-
-\[
-Recall = \frac{TP}{TP + FN}
-\]
-
-### Specificity
-
-\[
-Specificity = \frac{TN}{TN + FP}
-\]
-
-### Balanced Accuracy
-
-\[
-BA = \frac{Recall + Specificity}{2}
-\]
-
-### Matthews Correlation Coefficient
-
-\[
-MCC = \frac{TP \cdot TN - FP \cdot FN}
-{\sqrt{(TP+FP)(TP+FN)(TN+FP)(TN+FN)}}
-\]
+**MCC = ((TP·TN) - (FP·FN)) / sqrt((TP+FP)(TP+FN)(TN+FP)(TN+FN))**  
+Measures overall segmentation quality using all four confusion-matrix terms and is especially useful when skin and background pixels are highly imbalanced.
 
 ---
 
@@ -248,7 +226,7 @@ This suggests:
 ---
 ## Repository Structure
 
-
+```text
 .
 ├── data/              # Contains dataset assets (images, masks, metadata, splits), download from Google Drive.
 ├── outputs/           # Generated predictions, overlays, evaluation outputs, and trained checkpoints, download from Google Drive.
@@ -288,8 +266,10 @@ src/
 Full data and outputs folder available here:
 https://drive.google.com/drive/folders/1n1RLtGvbZ7ux8xICtuUjXizDJMyAxz8B?usp=sharing
 
-
+```markdown
 ## Setup
+
+```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
