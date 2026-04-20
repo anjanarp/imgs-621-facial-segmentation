@@ -10,8 +10,6 @@ Rochester Institute of Technology
 
 This project investigates robust **binary facial skin segmentation** under changing image conditions. The goal is to isolate stable exposed skin regions from portrait images while handling ambiguity caused by makeup, hair, shadows, facial features, and boundary noise.
 
-Rather than relying only on benchmark performance, this project also frames the task as a **domain shift problem**: models trained on curated celebrity imagery may struggle on real phone selfies with different lighting, cameras, backgrounds, and poses.
-
 ### Input / Output
 
 - **Input:** RGB portrait image  
@@ -265,14 +263,15 @@ src/
 
 Full data and outputs folder available here:
 https://drive.google.com/drive/folders/1n1RLtGvbZ7ux8xICtuUjXizDJMyAxz8B?usp=sharing
+```
 
-```markdown
 ## Setup
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
 
 ## Conclusion
 
