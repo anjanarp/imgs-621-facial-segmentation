@@ -1,4 +1,4 @@
-# Conservative Facial Skin Segmentation Under Domain Shift
+# Conservative Facial Skin Segmentation 
 
 **IMGS-621 Computer Vision Project**  
 Author: Anjana Parasuram  
