@@ -188,23 +188,6 @@ Unlike pixelwise thresholding, U-Net learns:
 
 ---
 
-## Generalization Check
-
-Validation and test metrics were nearly identical:
-
-| Metric | Val | Test |
-|------|----:|----:|
-| IoU | 0.9078 | 0.9065 |
-| Dice | 0.9511 | 0.9501 |
-
-This suggests:
-
-- minimal overfitting  
-- stable training  
-- strong held-out generalization
-
----
-
 ## Limitations
 
 - props / occlusions (hands, microphones, glasses)  
